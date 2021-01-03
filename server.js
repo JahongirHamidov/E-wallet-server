@@ -12,6 +12,8 @@ connectDB()
 
 const transactions = require('./routes/transactions.js')
 
+app.use(express.json())
+
 app.use('/api/v1/transactions', transactions)
 
 const PORT = process.env.PORT || 5000
