@@ -4,8 +4,13 @@ const dotenv = require('dotenv')
 const colors = require('colors')
 const morgan = require('morgan')
 
-const transactions = require('./routes/transactions.js')
+const connectDB = require('./config/db')
+
 dotenv.config({ path:'./config/config.env'})
+
+connectDB()
+
+const transactions = require('./routes/transactions.js')
 
 app.use('/api/v1/transactions', transactions)
 
