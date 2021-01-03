@@ -4,9 +4,10 @@ const dotenv = require('dotenv')
 const colors = require('colors')
 const morgan = require('morgan')
 
+const transactions = require('./routes/transactions.js')
 dotenv.config({ path:'./config/config.env'})
 
-app.get('/', (req,res)=>{res.send('hello')})
+app.use('/api/v1/transactions', transactions)
 
 const PORT = process.env.PORT || 5000
 
